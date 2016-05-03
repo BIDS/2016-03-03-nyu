@@ -1,0 +1,632 @@
+<!doctype html>
+<html lang="en">
+
+        <head>
+                <meta charset="utf-8">
+
+                <title>Harder, Better, Faster: Case Studies in Reproducible Workflows</title>
+
+                <meta name="description" content="
+                ">
+                <meta name="author" content="Dr. Kathryn Huff">
+
+                <meta name="apple-mobile-web-app-capable" content="yes" />
+                <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+                <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+                <link rel="stylesheet" href="css/reveal.min.css">
+                <link rel="stylesheet" href="css/theme/simple.css" id="theme">
+
+                <!-- For syntax highlighting -->
+                <link rel="stylesheet" href="lib/css/zenburn.css">
+
+                <!-- If the query includes 'print-pdf', include the PDF print sheet -->
+                <script>
+if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+}
+                </script>
+
+                <!--[if lt IE 9]>
+                        <script src="lib/js/html5shiv.js"></script>
+                <![endif]-->
+        </head>
+
+        <body>
+
+                <div class="reveal">
+
+                        <!-- Any section element inside of this container is displayed as a slide -->
+                        <div class="slides">
+				<section>
+                                        <h2>Harder, Better, Faster:</h2>
+                                        <h3>Case Studies in Reproducible Workflows</h3>
+                                        <br/>
+                                        <h3>Kathryn Huff</h3>
+                                        <h3>NYU Reproducibility Symposium<h3>
+                                                        <h3>May 03, 2016</h3>
+                                </section>
+                                <section>
+                                        <section>
+                                                <span class="fragment">
+                                                        <a
+                                                      href="http://uchicago.edu"
+                                                      class="image"><img
+                                                      height="300"
+                                                      src="http://geosci.uchicago.edu/~kite/university.seal.rgb.maroon.jpg"
+                                                      alt="Physics, University of Chicago"></a>
+                                                </span>
+                                                <span class="fragment">
+                                                        <a
+                                                      href="https://engr.wisc.edu/ep.html"
+                                                      class="image"><img
+                                                      height="300"
+                                                      src="https://biochem.wisc.edu/sites/default/files/intranet/medialab/clipart/UW_crest.gif"
+                                                      alt="Nuclear Engineering and Engineering Physics, University of Wisconsin - Madison"></a>
+                                                </span>
+                                                <span class="fragment">
+                                                        <a
+                                                      href="http://nuc.berkeley.edu"
+                                                      class="image"><img
+                                                      height="300"
+                                                      src="http://www.berkeley.edu/brand/img/seals/ucbseal_139_540.png"
+                                                      alt="Nuclear Engineering, University of California, Berkeley"></a>
+                                                </span>
+                                                <span class="fragment">
+                                                        <a
+                                                      href="http://npre.illinois.edu"
+                                                      class="image"><img
+                                                      height="300"
+                                                      src="https://upload.wikimedia.org/wikipedia/en/thumb/1/18/UIUC_seal.svg/480px-UIUC_seal.svg.png"
+                                                      alt="Nuclear, Plasma, and Radiological Engineering, University of Illinois, Urbana-Champaign"></a>
+                                                </span>
+                                        </section>
+                                        <section>
+                                                <span class="fragment">
+                                                        <a href="http://bids.berkeley.edu"
+                                                        class="image"><img
+                                                        height="200"
+                                                        src="http://bids.berkeley.edu/sites/all/themes/bids/logo.png"
+                                                        alt="BIDS Logo"></a>
+                                                </span><br/>
+                                                <span class="fragment">
+                                                        <a
+                                                        href="http://scipy.org"
+                                                        class="image"><img
+                                                        height="150"
+                                                        src="http://scipy.org/_static/images/scipycentral.png"
+                                                        alt="Scipy"></a>
+                                                </span>
+                                                <span class="fragment">
+                                                        <a
+                                                      href="http://software-carpentry.org"
+                                                      class="image"><img
+                                                      height="150"
+                                                      src="http://bids.berkeley.edu/sites/default/files/styles/450x254/public/projects/software-carpentry-450x254.png?itok=0XnUCwrr"
+                                                      alt="Software Carpentry"></a>
+                                                </span>
+                                                <span class="fragment">
+                                                        <a
+                                                      href="http://thehackerwithin.github.io"
+                                                      class="image"><img
+                                                      height="150"
+                                                      src="http://thehackerwithin.github.io/images/thw_icon.png"
+                                                      alt="THW"></a>
+                                                </span>
+                                                <span class="fragment">
+                                                        <a
+                                                      href="http://physics.codes"
+                                                      class="image"><img
+                                                      height="150"
+                                                      src="http://physics.codes/images/ecip.jpg"
+                                                      alt="book"></a>
+                                                </span>
+                                                <span class="fragment">
+                                                        <a href="http://pyne.io"
+                                                           class="image"><img
+                                                           height="150"
+                                                           src="http://bids.berkeley.edu/sites/default/files/styles/450x254/public/projects/pyne-450x254.png?itok=rdkh0T8e"
+                                                           alt="pyne"></a>
+                                                </span>
+                                                <span class="fragment">
+                                                        <a
+                                                      href="http://fuelcycle.org"
+                                                      class="image"><img
+                                                      height="150"
+                                                      src="http://fuelcycle.org/_images/logo2_bike.gif"
+                                                      alt="cyclus"></a>
+                                                </span>
+                                                <span class="fragment">
+                                                        <a href="http://pyrk.github.io"
+                                                           class="image"><img
+                                                           height="150"
+                                                           src="http://pyrk.github.io/_images/logo.png"
+                                                           alt="pyrk"></a>
+                                                </span>
+                                        </section>
+                                        <section>
+                                                <h3></h3>
+                                        </section>
+                                        <section data-background="./images/book_stock_pexels.jpg" data-background-size="cover">
+                                        </section>
+                                        <section data-background="./images/book_stock_pexels.jpg" data-background-size="cover" style="background: rgba(255, 255, 255, 0.95);">
+                                                <ul style="list-style-type: none">
+                                                        <li class="fragment">Case Study Book Concept</li>
+                                                        <li class="fragment">Case Study Contributions</li>
+                                                        <li class="fragment">Lessons Learned</li>
+                                                        <li class="fragment">Next Steps!</li>
+                                                </ul>
+                                        </section>
+                                </section>
+                                <section>
+				        <section data-background="https://bids.berkeley.edu/sites/default/files/bids_dots_and_lines_overlay.png" data-background-size="cover">
+					</section>
+				        <section data-background="https://bids.berkeley.edu/sites/default/files/bids_dots_and_lines_overlay.png"  data-transition="none" data-background-size="cover">
+                                                        <a href="http://bids.berkeley.edu"
+                                                           class="image"><img
+                                                           height="500"
+                                                           src="images/repro_wg_mission.png"
+                                                           alt="repro mission"></a>
+
+                                        </section>
+				        <section data-background="https://bids.berkeley.edu/sites/default/files/bids_dots_and_lines_overlay.png"  data-transition="none" data-background-size="cover" style="background: rgba(255, 255, 255, 0.95);">
+                                                        <a href="http://bids.berkeley.edu"
+                                                           class="image"><img
+                                                           height="500"
+                                                           src="images/jkitzes_flow_raw.png"
+                                                           alt="justin kitzes flow"></a>
+                                        </section>
+				        <section data-background="https://bids.berkeley.edu/sites/default/files/bids_dots_and_lines_overlay.png"  data-transition="none" data-background-size="cover" style="background: rgba(255, 255, 255, 0.95);">
+                                                        <a href="http://bids.berkeley.edu"
+                                                           class="image"><img
+                                                           height="500"
+                                                           src="images/jkitzes_flow.png"
+                                                           alt="justin kitzes flow"></a>
+                                        </section>
+				        <section data-background="https://bids.berkeley.edu/sites/default/files/bids_dots_and_lines_overlay.png"  data-transition="none" data-background-size="cover" style="background: rgba(255, 255, 255, 0.95);">
+                                                        <span class="fragment">
+                                                        <a href="http://bids.berkeley.edu"
+                                                           class="image"><img
+                                                           height="500"
+                                                           src="images/khuff_flow.png"
+                                                           alt="khuff flow"></a>
+                                                        </span>
+					</section>
+				        <section data-background="https://bids.berkeley.edu/sites/default/files/bids_dots_and_lines_overlay.png"  data-transition="none" data-background-size="cover" style="background: rgba(255, 255, 255, 0.95);">
+                                                        <span class="fragment">
+                                                        <a href="http://bids.berkeley.edu"
+                                                           class="image"><img
+                                                           height="300"
+                                                           src="images/basic_flow.png"
+                                                           alt="basic flow"></a>
+                                                        </span>
+                                        </section>
+                                        <section data-background="./images/repro_conf.jpg" data-background-size="cover">
+                                        </section>
+                                        <section data-background="./images/repro_conf.jpg" data-background-size="cover" style="background: rgba(255, 255, 255, 0.95);">
+                                                <a href="https://github.com/BIDS/repro-conf" data-preview-link><h2>Reproducibility and Open Science Conference</h2><h2>May 21&22, 2015</h2></a>
+                                                <ul>
+							<li>Three days</li>
+							<li>Invitation Only</li>
+							<li>Case Studies, Education, Self-assessment</li>
+							<li>https://github.com/BIDS/repro-conf</li>
+						</ul>
+                                        </section>
+                                        <section data-background="./images/repro_conf.jpg" data-transition="none" data-background-size="cover" style="background: rgba(255, 255, 255, 0.95);">
+                                                        <span class="fragment">
+                                                        <a href="http://bids.berkeley.edu"
+                                                           class="image"><img
+                                                           height="500"
+                                                           src="images/jgukelberger_flow.png"
+                                                           alt="jgukelberger flow"></a>
+                                                        </span>
+
+                                        </section>
+                                        <section data-background="./images/repro_conf.jpg" data-transition="none" data-background-size="cover" style="background: rgba(255, 255, 255, 0.95);">
+                                                        <span class="fragment">
+                                                        <a href="http://bids.berkeley.edu"
+                                                           class="image"><img
+                                                           height="500"
+                                                           src="images/akrause_flow.png"
+                                                           alt="akrause flow"></a>
+                                                        </span>
+
+                                        </section>
+                                        <section data-background="./images/repro_conf.jpg" data-background-size="cover">
+                                        </section>
+                                        <section data-background="./images/repro_conf.jpg" data-transition="none" data-background-size="cover" style="background: rgba(255, 255, 255, 0.95);" data-markdown>
+<script type="text/template">
+### Diagram
+  - specialized tools and where they enter your workflow
+  - the "state" of the data at each stage
+  - collaborators
+  - version control repos
+  - products produced at various stages (graphics, summaries, etc)
+  - databases
+  - whitepapers
+</script>
+                                        </section>
+                                        <section data-background="./images/repro_conf.jpg" data-transition="none" data-background-size="cover" style="background: rgba(255, 255, 255, 0.95);" data-markdown>
+<script type="text/template">
+### Description
+- **Frequency:** How often does the step happen and how long does it take?
+- **Who:** Which members of your team participate (or not)?
+- **Manual/Automated:** Is the step automated or does it involve human intervention (if so, is it recorded)?
+- **Tools:** Which software or online tools are used in the step? How are they used?
+</script>
+                                        </section>
+                                        <section data-background="./images/repro_conf.jpg" data-transition="none" data-background-size="cover" style="background: rgba(255, 255, 255, 0.95);" data-markdown>
+<script type="text/template">
+### Description
+- **Data:** Is your raw data online?
+   - Is it citeable?
+   - Does the license allow external researchers to publish a replication/confirmation of your published work?
+- **Software:** Is the software online?
+  - Is there documentation?
+  - Are there tests?
+  - Are there example input files alongside the code?
+- **Processing:** Is your data processing workflow online?
+  - Are the scripts documented?
+  - Would an external researcher know what order to run them in?
+  - Would they know what parameters to use?
+</script>
+                                        </section>
+                                        <section data-background="./images/repro_conf.jpg" data-transition="none" data-background-size="cover" style="background: rgba(255, 255, 255, 0.95);" data-markdown>
+<script type="text/template">
+### Pain points
+  - Which steps cause bottlenecks?
+  - What is hard?
+  - Why is it hard?
+  - How do you handle it?
+</script>
+                                        </section>
+                                        <section data-background="./images/repro_conf.jpg" data-transition="none" data-background-size="cover" style="background: rgba(255, 255, 255, 0.95);" data-markdown>
+<script type="text/template">
+### General Questions
+- **Why** is reproducibility in your domain important?
+- **How** did you learn the reproducible practices described in your case study? 
+- **What** are the major challenges pitfalls to reproducible research in your domain?
+- **What** are the major incentives for doing reproducible research?
+- **Which** best practices can you recommend?
+- **Which** resources could you recommend for learning more?
+</script>
+                                        </section>
+				</section>
+                                <section>
+                                        <section>
+                                                <h2>Editors</h2>
+                                                <span>
+                                                        <a href="http://bids.berkeley.edu"
+                                                           class="image"><img
+                                                           height="200"
+                                                           src="images/justin.jpg"
+                                                           alt="justin kitzes"></a>
+                                                </span>
+                                                <span>
+                                                        <a href="http://bids.berkeley.edu"
+                                                           class="image"><img
+                                                           height="200"
+                                                           src="images/fatma.jpg"
+                                                           alt="fatma imamoglu"></a>
+                                                </span>
+                                                <span>
+                                                        <a href="http://bids.berkeley.edu"
+                                                           class="image"><img
+                                                           height="200"
+                                                           src="images/daniel.jpg"
+                                                           alt="daniel turek"></a>
+                                                </span>
+                                                <p>Justin Kitzes, Fatma Imamoglu, Daniel Turek</p>
+                                        </section>
+                                        <section>
+                                                <h3>Supplementary Chapter Authors</h3>
+                                                <br/>
+                                                <table class="reveal">
+                                                                <tr>
+                                                                        <td>
+                                                                                <a href="http://bids.berkeley.edu"
+                                                                                   class="image"><img
+                                                                                   height="200"
+                                                                                   src="images/bids.png"
+                                                                                   alt="BIDS"></a>
+                                                                        </td>
+                                                                        <td>
+                                                                                <a href="http://bids.berkeley.edu"
+                                                                                   class="image"><img
+                                                                                   height="200"
+                                                                                   src="images/uw_escience.jpg"
+                                                                                   alt="uw escience"></a>
+                                                                        </td>
+                                                                        <td>
+                                                                                <a href="http://bids.berkeley.edu"
+                                                                                   class="image"><img
+                                                                                   height="200"
+                                                                                   src="images/nyu_cds.jpg"
+                                                                                   alt="nyu center for data science"></a>
+                                                                        </td>
+                                                                <tr>
+                                                                </tr>
+                                                                        <td style="vertical-align:top">
+                                                                                <ul style="list-style-type:none">
+                                                                                        <li>Philip Stark</li>
+                                                                                        <li>Justin Kitzes</li>
+                                                                                        <li>Daniel Turek</li>
+                                                                                        <li>Fatma Imamoglu</li>
+                                                                                        <li>Kathryn Huff</li>
+                                                                                        <li>Karthik Ram</li>
+                                                                                </ul>
+                                                                        </td>
+                                                                        <td style="vertical-align:top">
+                                                                                <ul style="list-style-type:none">
+                                                                                        <li>Ariel Rokem</li>
+                                                                                        <li>Ben Marwick</li>
+                                                                                        <li>Valentina Staneva</li>
+                                                                                </ul>
+                                                                        </td>
+                                                                        <td style="vertical-align:top">
+                                                                                <p>Fernando Chirigati</p>
+                                                                        </td>
+                                                                </tr>
+                                                </table>
+
+                                        </section>
+					<section>
+                                                <h2>Case Study Chapter Contributors</h2>
+                                                <small>
+                                                        <table class="reveal">
+                                                                <tr>
+                                                                        <td>
+                                                                                <ul>
+                                                                                <li>Mary K. Askren</li>
+                                                                                <li>Anthony Arendt</li>
+                                                                                <li>Lorena A. Barba</li>
+                                                                                <li>Pablo Barberá</li>
+                                                                                <li>Kyle Barbary</li>
+                                                                                <li>Carl Boettiger</li>
+                                                                                <li>You-Wei Cheah</li>
+                                                                                <li>Garret Christensen</li>
+                                                                                <li>Devarshi Ghoshal</li>
+                                                                                <li>Chris Gorgolewski</li>
+                                                                                </ul>
+                                                                        </td>
+                                                                        <td>
+                                                                                <ul>
+                                                                                <li>Jan Gukelberger</li>
+                                                                                <li>Chris Holdgraf</li>
+                                                                                <li>Konrad Hinsen</li>
+                                                                                <li>David Holland</li>
+                                                                                <li>Chris Hartgerink</li>
+                                                                                <li>Kathryn Huff</li>
+                                                                                <li>Fatma Imamoglu</li>
+                                                                                <li>Justin Kitzes</li>
+                                                                                <li>Natalie Koh</li>
+                                                                                <li>Andy Krause</li>
+                                                                                </ul>
+                                                                        </td>
+                                                                        <td>
+                                                                                <ul>
+                                                                                <li>Randy LeVeque</li>
+                                                                                <li>Tara Madhyastha</li>
+                                                                                <li>José Manuel Magallanes</li>
+                                                                                <li>Ben Marwick</li>
+                                                                                <li>Olivier Mesnard</li>
+                                                                                <li>K. Jarrod Millman</li>
+                                                                                <li>K. A. S. Mislan</li>
+                                                                                <li>Kellie Ottoboni</li>
+                                                                                <li>Gilberto Pastorello</li>
+                                                                                <li>Russell Poldrack</li>
+                                                                                </ul>
+                                                                        </td>
+                                                                        <td>
+                                                                                <ul>
+                                                                                <li>Karthik Ram</li>
+                                                                                <li>Ariel Rokem</li>
+                                                                                <li>Rachel Slaybaugh</li>
+                                                                                <li>Valentina Staneva</li>
+                                                                                <li>Philip Stark</li>
+                                                                                <li>Daniel Turek</li>
+                                                                                <li>Daniela Ushizima</li>
+                                                                                <li>Zhao Zhang</li>
+                                                                                </ul>
+                                                                        </td>
+                                                                </tr>
+                                                        </table>
+                                                </small>
+					</section>
+                                        <section>
+
+                                        </section>
+<section data-markdown>
+<script type="text/template">
+## Progress
+- Title:
+- UC Press
+- June, 2015 - February, 2016: Collected 34 [case studies](https://github.com/BIDS/repro-case-studies/blob/master/case-studies/dturek.pdf) from scientists
+- May 1, 2016: Drafts of supplementary chapters complete
+- May 15, 2016:  Friendly Reviews Complete
+- June 1, 2016: Draft Manuscript Submitted
+- Early 2017: Published
+</script>
+</section>
+</section>
+<section>
+                                        <section>
+                                                <h2>Lessons Learned</h2>
+                                        </section>
+
+                                        <section data-markdown>
+### Pain Point: People and Skills
+                                        </section>
+                                        <section data-markdown>
+## Recommendations
+Many themes were repeated among the recommendations of the scientists:
+
+- version control your code
+- open your data
+- automate everywhere possible
+- document your processes
+- test everything
+- use free and open tools
+                                        </section>
+                                        <section data-markdown>
+## Recommendations: Continued
+Less common refrains that are already well established best practices within
+the current reproducibility climate include:
+
+- avoid excessive dependencies
+- when dependencies can't be avoided, package their installation
+- host code on a collaborative platform (e.g. GitHub)
+- get a Digital Object Identifier for your data and code
+- avoid spreadsheets, plain text data is preferred ("timeless," even)
+- explicitly set pseudorandom number generator seeds
+- workflow and provenance frameworks may be too clunky for most scientists
+
+                                        </section>
+                                        <section data-markdown>
+## Recommendations: Outliers
+
+> ... in our estimation, if someone 
+> was to try to reproduce our research it would probably be more 
+> natural for them to write their own scripts as this has the 
+> additional benefit that they might not fall into any error 
+> we may have accidentally introduced in our scripts.
+                                        </section>
+                                        <section data-markdown>
+## Recommendations: Outliers
+> Scientific funding and the number of scientists available to do the work is finite.  Therefore not every scientific result can, or should be reproduced.
+
+                                        </section>
+                                        <section>
+                                                        <a href="http://bids.berkeley.edu"
+                                                           class="image"><img
+                                                           height="400"
+                                                           src="./images/tools.png"
+                                                           alt="tools"> 
+                                                          </a>
+                                        </section>
+                                        <section>
+                                                        <a href="http://bids.berkeley.edu"
+                                                           class="image"><img
+                                                           height="400"
+                                                           src="./images/languages.png"
+                                                           alt="languagess"> 
+                                                          </a>
+                                        </section>
+                                        <section>
+                                                        <a href="http://bids.berkeley.edu"
+                                                           class="image"><img
+                                                           height="400"
+                                                           src="./images/testing.png"
+                                                           alt="testing"></a>
+                                        </section>
+                                </section>
+                                <section>
+                                        <section>
+                                                <h2>Social Science Volume</h2>
+<h4>Collecting Case Studies Spring/Summer 2016</h4>
+<ul>
+<li>Same format: 1,500-2,000 words plus one diagram</li>
+<li>Describing a specific project of yours and its reproducible workflow</li>
+<li>Including: benefits, difficulties, tools</li>
+</ul>
+More info:
+<ul>
+<li>Bad Hessian blog : http://www.badhessian.org</li>
+<li>GitHub Repo : http://github.com/BIDS/ss-repro-case-public</li>
+<li>Email Garret Christensen (garret@berkeley.edu) or Cyrus Dioun (dioun@berkeley.edu)</li>
+</ul>
+                                                </ul>
+                                        </section>
+                                        <section>
+                                                <h2>Links</h2>
+                                                <ul>
+                                                        <ul>
+                                                                <li><a href="katyhuff.github.io"> katyhuff.github.io </a></li>
+                                                                <li><a href="fuelcycle.org"> fuelcycle.org</a></li>
+                                                                <li><a href="fhr.nuc.berkeley.edu">fhr.nuc.berkeley.edu</a></li>
+                                                                <li><a href="http://pyrk.github.io/">pyrk.github.io</a></li>
+                                                        </ul>
+                                        </section>
+                                        <section>
+                                                <h2>Acknowledgements</h2>
+                                                <p>
+                                                <ul>
+                                                        <li>Justin Kitzes</li>
+                                                        <li>Fatma Imamoglu</li>
+                                                        <li>Daniel Turek</li>
+                                                        <li>Chapter Authors</li>
+                                                        <li>Case Study Authors</li>
+                                                        <li>Reproducibility Working Group</li>
+                                                </ul>
+                                                <br/>
+                                                <span class="fragment">
+                                                        <a href="http://bids.berkeley.edu"
+                                                           class="image"><img
+                                                           width="25%"
+                                                           src="http://bids.berkeley.edu/sites/all/themes/bids/logo.png"
+                                                           alt="BIDS Logo"></a>
+                                                </span>
+                                        </section>
+                                </section>
+                                <section>
+                                        <h1>THE END</h1>
+                                        <h3><a
+                                                           href="https://katyhuff.github.io">Katy Huff</a> </h3>
+                                        <a href="https://katyhuff.github.io/2016-05-03-nyu">katyhuff.github.io/2016-05-03-nyu</a>
+
+                                        <br/>
+                                        <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img
+                                                         alt="Creative Commons License" style="border-width:0"
+                                                                                        src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br /><span
+                                                                                        xmlns:dct="http://purl.org/dc/terms/" 
+                                                                                        property="dct:title">Harder, 
+                                                Better, Faster: Case Studies in 
+                                                Reproducible Workflows</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://katyhuff.github.io" property="cc:attributionName" rel="cc:attributionURL">Kathryn Huff</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.<br />Based on a work at <a xmlns:dct="http://purl.org/dc/terms/" href="http://katyhuff.github.io/2016-05-03-nyu" rel="dct:source">http://katyhuff.github.io/2016-05-03-nyu</a>.
+                                </section>
+
+                        </div>
+
+                </div>
+
+                <script src="lib/js/head.min.js"></script>
+                <script src="js/reveal.min.js"></script>
+
+                <script>
+
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+        controls: true,
+        progress: true,
+        slideNumber: true,
+        history: true,
+        center: true,
+
+        theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+        transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+        // Parallax scrolling
+        // parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+        // parallaxBackgroundSize: '2100px 900px',
+
+        // Optional libraries used to extend on reveal.js
+        dependencies: [
+        { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+        { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+        { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+        { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+        { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+        { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+        { src: 'plugin/math/math.js', async: true }
+        ]
+});
+
+                </script>
+
+        </body>
+</html>
