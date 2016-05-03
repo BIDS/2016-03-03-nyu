@@ -296,6 +296,18 @@ if( window.location.search.match( /print-pdf/gi ) ) {
 - **Which** resources could you recommend for learning more?
 </script>
                                         </section>
+                                        <section data-background="./images/repro_conf.jpg" data-transition="none" data-background-size="cover" style="background: rgba(255, 255, 255, 0.95);" data-markdown>
+- Preface (Stark)
+- Introduction (Kitzes) 
+- Assessing the Reproducibility of a Research Project (Rokem, Marwick, Staneva) 
+- The Basic Reproducible Workflow Template (Kitzes, Turek) 
+- Introducing the Case Studies (Imamoglu, Turek)
+- PART 1: High-Level Case Studies
+- PART 2: Low-Level Case Studies 
+- Lessons Learned (Huff et al.)
+- Supporting Reproducible Science (Ram, Marwick)
+- Glossary of Terms and Techniques (Rokem, Chirigati)
+</section>
 				</section>
                                 <section>
                                         <section>
@@ -376,7 +388,7 @@ if( window.location.search.match( /print-pdf/gi ) ) {
 
                                         </section>
 					<section>
-                                                <h2>Case Study Chapter Contributors</h2>
+                                                <h2>Case Study Chapter Contributors!</h2>
                                                 <small>
                                                         <table class="reveal">
                                                                 <tr>
@@ -439,32 +451,58 @@ if( window.location.search.match( /print-pdf/gi ) ) {
                                                 </small>
 					</section>
                                         <section>
-
+                                                        <a href="http://bids.berkeley.edu"
+                                                           class="image"><img
+                                                           height="400"
+                                                           src="./images/domains.png"
+                                                           alt="tools"> 
+                                                          </a>
                                         </section>
 <section data-markdown>
 <script type="text/template">
 ## Progress
-- Title:
-- UC Press
-- June, 2015 - February, 2016: Collected 34 [case studies](https://github.com/BIDS/repro-case-studies/blob/master/case-studies/dturek.pdf) from scientists
-- May 1, 2016: Drafts of supplementary chapters complete
-- May 15, 2016:  Friendly Reviews Complete
-- June 1, 2016: Draft Manuscript Submitted
-- Early 2017: Published
+- **Title:** The Practice of Reproducible Research
+- **Publisher:** UC Press
+- **June, 2015 - February, 2016:** Collected 34 [case studies](https://github.com/BIDS/repro-case-studies/blob/master/case-studies/dturek.pdf) from scientists
+- **May 1, 2016:** Drafts of supplementary chapters complete
+- **May 15, 2016:**  Friendly Reviews Complete
+- **June 1, 2016:** Draft Manuscript Submitted
+- **Early 2017**: Published
 </script>
 </section>
 </section>
 <section>
-                                        <section>
-                                                <h2>Lessons Learned</h2>
-                                        </section>
-
                                         <section data-markdown>
-### Pain Point: People and Skills
+## Lessons Learned
+- Pain Points
+- Recommmendations from the Authors
+- A Little Data
+- Needs
+
+                                        </section>
+                                        <section>
+<h2>Pain Points</h2>
+<li class="fragment">People and Skills</li>
+<li class="fragment">Dependencies, Build Systems, and Packaging</li>
+<li class="fragment">Hardware Access</li>
+<li class="fragment">Testing</li>
+<li class="fragment">Publishing</li>
+<li class="fragment">Data Versioning</li>
+<li class="fragment">Time and Incentives</li>
+<li class="fragment">Data restrictions</li>
+                                        </section>
+                                        <section data-markdown>
+                                        ## Incentives
+                                        - verifiability
+                                        - collaboration
+                                        - efficiency
+                                        - extensibility
+                                        - "focus on science"
+                                        - "forced planning"
+                                        - "safety for evolution"
                                         </section>
                                         <section data-markdown>
 ## Recommendations
-Many themes were repeated among the recommendations of the scientists:
 
 - version control your code
 - open your data
@@ -475,8 +513,6 @@ Many themes were repeated among the recommendations of the scientists:
                                         </section>
                                         <section data-markdown>
 ## Recommendations: Continued
-Less common refrains that are already well established best practices within
-the current reproducibility climate include:
 
 - avoid excessive dependencies
 - when dependencies can't be avoided, package their installation
@@ -524,6 +560,27 @@ the current reproducibility climate include:
                                                            src="./images/testing.png"
                                                            alt="testing"></a>
                                         </section>
+                                        <section>
+<h2>Emergent Needs</h2>
+<small>
+<ul>
+<li>Better education of scientists in more reproducibility-robust tools.</li>
+<li>Widely used tools should be more reproducible so that the common denominator tool does not undermine reproducibility.</li>
+<li>Improved configuration and build systems for portably packaging software, data, and analysis workflows.</li>
+<li>Reproducibility at scale for high performance computing.</li>
+<li>Standardized hardware configurations and experimental procedures for limited-availability experimental apparatuses.</li>
+<li>Better understanding of why researchers don't respond to the delayed incentives of unit testing as a practice.</li>
+<li>Greater adoption of unit testing irrespective of programming language.</li>
+<li>Broader community adoption around publication formats that allow parallel editing (i.e. any plain text markup language that can be version</li>
+<li>Greater scientific adoption of new industry-led tools and platforms for data storage, versioning, and management.</li>
+<li>Increased community recognition of the benefits of reproducibility.</li>
+<li>Incentive systems where reproducibility is not self-incentivizing.</li>
+<li>Standards around scrubbed and representational data so that analysis can be investigated separate from restricted data sets.</li>
+<li>Community adoption for file format standards within some domains.</li>
+<li>Domain standards which translate well outside of their own scientific communities.</li>
+</ul>
+</small>
+                                        </section>
                                 </section>
                                 <section>
                                         <section>
@@ -531,26 +588,11 @@ the current reproducibility climate include:
 <h4>Collecting Case Studies Spring/Summer 2016</h4>
 <ul>
 <li>Same format: 1,500-2,000 words plus one diagram</li>
-<li>Describing a specific project of yours and its reproducible workflow</li>
-<li>Including: benefits, difficulties, tools</li>
-</ul>
-More info:
-<ul>
 <li>Bad Hessian blog : http://www.badhessian.org</li>
 <li>GitHub Repo : http://github.com/BIDS/ss-repro-case-public</li>
 <li>Email Garret Christensen (garret@berkeley.edu) or Cyrus Dioun (dioun@berkeley.edu)</li>
 </ul>
                                                 </ul>
-                                        </section>
-                                        <section>
-                                                <h2>Links</h2>
-                                                <ul>
-                                                        <ul>
-                                                                <li><a href="katyhuff.github.io"> katyhuff.github.io </a></li>
-                                                                <li><a href="fuelcycle.org"> fuelcycle.org</a></li>
-                                                                <li><a href="fhr.nuc.berkeley.edu">fhr.nuc.berkeley.edu</a></li>
-                                                                <li><a href="http://pyrk.github.io/">pyrk.github.io</a></li>
-                                                        </ul>
                                         </section>
                                         <section>
                                                 <h2>Acknowledgements</h2>
@@ -588,6 +630,18 @@ More info:
                                                 Better, Faster: Case Studies in 
                                                 Reproducible Workflows</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://katyhuff.github.io" property="cc:attributionName" rel="cc:attributionURL">Kathryn Huff</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.<br />Based on a work at <a xmlns:dct="http://purl.org/dc/terms/" href="http://katyhuff.github.io/2016-05-03-nyu" rel="dct:source">http://katyhuff.github.io/2016-05-03-nyu</a>.
                                 </section>
+<section data-markdown>
+> 'connectome workbench', 'stata', 'zotero', ' ', 'travisci', 'vistrails',
+> 'osf', 'testtools', 'nipy', 'coverage/coveralls', 'ferret', 'cmake',
+> 'flickr api', 'amazon s3', 'nose', 'readthedocs', 'pypi', 'jira',
+> 'jenkins', 'ec2 s3', 'sweave', 'shell', ' jupyter', 'sql', 'dataverse',
+> 'rnw', 'spark', ' paraview', 'data science toolkit', 'overleaf',
+> 'virtualenv', 'crossref', 'spyder', 'markdown', 'dropbox',
+> 'scikit-image', 'awk', 'netcdf', 'petsc', 'figshare', 'sharelatex',
+> 'pandoc', 'ibamr', 'dcvs', 'twitter api', 'mendeley', 'word', 'd3',
+> 'beautiful soup', 'sed', 'devtools', 'activepapers', 'private git repo',
+> 'cython', 'outreg2', 'rsync', ' zenodo', 'vagrant', 'c'
+></section>
 
                         </div>
 
